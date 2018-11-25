@@ -10,7 +10,7 @@ months = {
 	september: 30,
 	october: 31,
 	november: 30,
-	decenmer: 31
+	december: 31
 }
 
 months.each do |month, days|
