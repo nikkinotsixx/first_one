@@ -1,5 +1,5 @@
-alphabet = ("a".."z").to_a
-vowels = ["a", "e", "i", "o", "u"]
+alphabet = ('a'..'z').to_a
+vowels = %w[a e i o u]
 vowels_hash = {}
 
 alphabet.each_with_index do |letter, index|
