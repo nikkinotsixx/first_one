@@ -44,7 +44,7 @@ class Train
     end
   end
 
-  def move_forward
+  def move_backward
     if next_station
       location.remove_train(self)
       location -= 1
