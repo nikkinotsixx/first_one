@@ -45,15 +45,13 @@ class Train
       current_station.remove_train(self)
       next_station.add_train(self)
       @location += 1
-    end
   end
 
   def move_backward
-    if previous_station
+    return if previous_station.nil?
       current_station.remove_train(self)
-      location -= 1
       previous_station.add_train(self)
-    end
+      @location -= 1
   end
 
   def next_station
