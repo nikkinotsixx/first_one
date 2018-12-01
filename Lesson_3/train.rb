@@ -9,12 +9,16 @@ class Train
     @route = nil
   end
 
-  def acceleration(speed_up)
-    @speed += speed_up
+  def acceleration(speed)
+    @speed += speed
   end
 
-  def stop
-    @speed = 0
+  def slowdown(speed)
+    if @speed - speed > 0
+      @speed -= speed
+    else
+      @speed = 0
+    end
   end
 
   def add_wagon
@@ -28,25 +32,25 @@ class Train
 
   def new_route(route)
     @route = route
+    @location = 0
     @route.stations[0].add_train(self)
   end
 
   def current_station
-    @location = 0
     @route.stations[@location]
   end
 
   def move_forward
-    if next_station
-      location.remove_train(self)
-      location += 1
+    return if next_station.nil?
+      current_station.remove_train(self)
       next_station.add_train(self)
+      @location += 1
     end
   end
 
   def move_backward
-    if next_station
-      location.remove_train(self)
+    if previous_station
+      current_station.remove_train(self)
       location -= 1
       previous_station.add_train(self)
     end

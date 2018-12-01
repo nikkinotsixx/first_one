@@ -5,15 +5,15 @@ class Route
     @stations = [initial_station, final_station]
   end
 
-  def add_station
+  def add_station(station)
     @stations.insert(-2, station)
   end
 
-  def remove_station
+  def remove_station(station)
     @stations.delete(station)
   end
 
   def show_stations
-    @stations.each { |station| puts station.name}
+    @stations.each { |station| puts station.name }
   end
 end
